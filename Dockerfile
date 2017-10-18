@@ -16,11 +16,8 @@ RUN apt-get install -y software-properties-common && apt-get install -y apt-util
 
 ################## BEGIN INSTALLATION ######################
 # Install Java
-RUN add-apt-repository ppa:webupd8team/java && apt-get update 
-
-RUN echo oracle-java8-installer shared/accepted-oracle-license-v1-1 select true | /usr/bin/debconf-set-selections
-
-RUN apt-get install -y oracle-java8-installer
+RUN apt-get install -y default-jdk
+# RUN apt-get install -y oracle-java8-installer
 
 # Install maven
 RUN apt-get -y install maven
