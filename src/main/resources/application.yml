@@ -1,0 +1,44 @@
+spring.jmx:
+   enabled: false
+
+spring.datasource:
+    driverClassName: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost/mygate?autoReconnect=true
+    username: root
+    password: 
+
+spring.datasource.test-on-borrow: true
+spring.datasource.validation-query: SELECT 1
+
+spring.jpa:
+    hibernate:
+      dialect: org.hibernate.dialect.MySQLInnoDBDialect
+      ddl-auto: update 
+
+server:
+  port: 8090
+
+spring.jackson.date-format: yyyy-MM-dd
+
+security:
+  basic:
+    enabled: false
+ 
+management:
+  port: 8091
+  security:
+    enabled: false 
+
+project:
+  name: mygateapi
+  version: 1.0.0
+  description: Rest API for MyGate
+info:
+  build:
+    artifact: ${project.artifactId}
+    name: ${project.name}
+    description: ${project.description}
+    version: ${project.version}
+
+user.service:
+  name: 'default profile:'
