@@ -17,5 +17,29 @@ Given the data about Food Trucks in San Francisco : here (https://data.sfgov.org
 5) Auto expiry of licenses (Achieved by Scheduling Tasks in Spring)
 6) Given one or multiple locations, predict which truck will be	 the best one to assign the job( POST /mygateapi/v1/foodTruck/search achieves this)
 
-## Requirements
+## Instructions
 The code just needs docker to run it.
+1) Install Docker
+~~~~
+sudo apt-get install docker-ce (Ubuntu/Debian)
+sudo yum install docker (Redhat/CentOS)
+~~~~
+2) Build the image (It may take some time depending on your internet connection)
+~~~~
+docker image build -t mygate .
+~~~~
+3) Run the image in background with ports 8090 for the API
+~~~~
+docker run -p 8090:8090 -d mygate 
+~~~~
+4) Access this API via http://127.0.0.1:8090/swagger-ui.html
+
+## Assumptions
+1) The DB is initially empty, we use the /loader API to populate the DB
+2) Most of the assumptions in contract are documented in the swagger documentations
+3) Latitude and Longitude are stored as strings and the distance computation are done on application level. They could have been handled at database level, which is not done here.
+
+
+## Issues
+
+Please report any issues identified to (me)[mailto:vivekadityapurella@gmail.com]
