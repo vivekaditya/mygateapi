@@ -9,7 +9,7 @@ FROM ubuntu
 MAINTAINER Vivek Aditya
 
 # Update the repository sources list
-RUN apt-get update && apt-get upgrade -y  
+RUN apt-get update && apt-get upgrade -y
 
 # Install basic requirements
 RUN apt-get install -y software-properties-common && apt-get install -y apt-utils
@@ -17,16 +17,14 @@ RUN apt-get install -y software-properties-common && apt-get install -y apt-util
 ################## BEGIN INSTALLATION ######################
 # Install Java
 RUN apt-get install -y default-jdk
-# RUN apt-get install -y oracle-java8-installer
 
 # Install maven
 RUN apt-get -y install maven
 
-# Cleans the local repository
-RUN apt-get clean
-
 RUN mkdir -p /mygateapi
 COPY . /mygateapi
 WORKDIR /mygateapi
-EXPOSE 8090
+RUN export DEBIAN_FRONTEND=noninteractive && apt-get -q -y install mysql-server
+EXPOSE 8090 8091
+CMD [ "bash", "startup.sh" ]
 ################## INSTALLATION END ########################

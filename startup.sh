@@ -1,10 +1,7 @@
 #!/usr/bin/env bash
 
-TIMESTAMP=$(date -Iseconds)
-if [ ! -d logs ]; then
-	mkdir logs;
-fi
-
-mvn spring-boot:run >> logs/log$TIMESTAMP 2>&1 &
-PID=$!
-echo $PID > "service.pid"
+/etc/init.d/mysql start
+mysql -u root -e "CREATE DATABASE IF NOT EXISTS mygate;"
+mvn spring-boot:run 
+#PID=$!
+#echo $PID > "service.pid"
