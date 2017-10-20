@@ -42,4 +42,4 @@ docker run -p 8090:8090 -d mygate
 
 ## Issues
 
-Please report any issues identified to (me)[mailto:vivekadityapurella@gmail.com]
+Please report any issues identified to [me](mailto:vivekadityapurella@gmail.com)
