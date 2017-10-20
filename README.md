@@ -38,7 +38,7 @@ docker run -p 8090:8090 -d mygate
 1) The DB is initially empty, we use the /loader API to populate the DB
 2) Most of the assumptions in contract are documented in the swagger documentations
 3) Latitude and Longitude are stored as strings and the distance computation are done on application level. They could have been handled at database level, which is not done here.
-
+4) 8090 port of host should be free
 
 ## Issues
 
